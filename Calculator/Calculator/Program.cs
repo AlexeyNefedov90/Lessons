@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 namespace Lesson1
 {
-
-
      public class Program
     {
         static void Main()
@@ -17,7 +15,6 @@ namespace Lesson1
         }
         static void Calculation()
         {
-
             int result;
 
             Console.WriteLine("Выбрать операцию: Сумма(+),Разность(-),Деление(/),Умножение(*):");
@@ -56,18 +53,17 @@ namespace Lesson1
             { Console.WriteLine("Неизвестный оператор."); }
 
         }
-
         static void Retry()
         {
 
             Console.WriteLine("Вы хотите продолжить работу с калькулятором? (Д/Н)");
             int repeat = Convert.ToChar(Console.ReadLine());
 
-            while (repeat == 'Д')
+            do
             {
                 Calculation();
             }
-
+            while (repeat == 'Д');
         }
     }
  }
