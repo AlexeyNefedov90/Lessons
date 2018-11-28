@@ -11,78 +11,50 @@ namespace Collection
     {
         static void Main(string[] args)
         {
-            Mebel divan = new Mebel(); /////////пока ещё не доделал
-            divan.name = "Диван";
-            divan.width = 6;
-            divan.length = 3;
-            divan.height = 1;
-            divan.form = "Угловой";
-            divan.Information();
 
-            Mebel stol = new Mebel();
-            stol.name = "Стол ";
-            stol.width = 3;
-            stol.length = 4;
-            stol.height = 2;
-            stol.color = "Красный";
-            stol.Information();
-
-            Mebel shkaf = new Mebel();
-            shkaf.name = "Шкаф ";
-            shkaf.width = 5;
-            shkaf.length = 2;
-            shkaf.color = "Серый";
-            shkaf.form = "Купе";
-            shkaf.height = 6;
-            shkaf.Information();
-
-            Mebel tumba = new Mebel();
-            tumba.name = "Тумба";
-            tumba.color = "Белый";
-            tumba.width = 4;
-            tumba.length = 3;
-            tumba.height = 1;
-            tumba.form = "Круглая";
-            tumba.Information();
+            List<Mebel> furniture = new List<Mebel>()
+            {
+                new Mebel { Name = "Шкаф", Width = 3, Height = 2, Length = 3, Color = "Зеленый" },
+                new Mebel { Name = "Кровать", Width = 1, Height = 3, Length = 2, Color = "Синий" },
+                new Mebel { Name = "Кресло", Width = 4, Height = 2, Length = 1, Color = "Красный" },
+                new Mebel { Name = "Стул", Width = 5, Height = 3, Length = 4, Color = "Белый" },
+                new Mebel { Name = "Стол", Width = 3, Height = 4, Length = 5, Color = "Черный" },
+                new Mebel { Name = "Тумба", Width = 2, Height = 5, Length = 3, Color = "Серый" }
+            };
 
 
-            ArrayList furniture = new ArrayList() {};
-
-            furniture.Add(divan);
-            furniture.Add(stol);
-            furniture.Add(shkaf);
-            furniture.Add(tumba);
 
             Console.WriteLine(furniture);
-            Console.ReadLine();
+            Console.ReadKey();
 
-            furniture.Sort();
+            var sortedFur = from f in furniture //Отсортируем по убыванию имени мебели
+                              orderby f.Name descending
+                              select f;
 
-            Console.WriteLine(furniture);
-            Console.ReadLine();
+            foreach (Mebel f in sortedFur)
+                Console.WriteLine(f.Name);
+                Console.ReadKey();
+
+            Console.WriteLine();
+
+
+            var sortedFurn = from f in furniture //Отсортируем по возрастанию цвета
+                            orderby f.Color ascending
+                             select f;
+
+            foreach (Mebel f in sortedFurn)
+                Console.WriteLine(f.Color);
+                Console.ReadKey();
+
 
         }
-    
-
-    public interface IComparable
-    {
-            int CompareTo(object o);
     }
-
-
-        class Mebel
+    public class Mebel
     {
-        public string name;
-        public int width;
-        public int length;
-        public int height;
-        public string color;
-        public string form;
-
-        public void Information()
-        {
-            Console.WriteLine($"Название мебели: {name} Ширина: {width} Длина: {length} Высота: {height} Цвет: {color} Форма: {form} ");
-        }
+        public string Name { get; set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
+        public int Length { get; set; }
+        public string Color { get; set; }
     }
-
 }
