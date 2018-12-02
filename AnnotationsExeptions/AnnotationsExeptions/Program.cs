@@ -10,7 +10,7 @@ namespace AnnotationsExeptions
     class Program
     {
         [AttributeUsage(AttributeTargets.Method | AttributeTargets.Field)]
-        public sealed class UInfoAttribute : System.Attribute
+        public class UInfoAttribute : Attribute
         {
             public string Desc;
             public UInfoAttribute() { }
