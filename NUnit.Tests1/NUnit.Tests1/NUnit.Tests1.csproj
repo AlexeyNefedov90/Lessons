@@ -42,6 +42,9 @@
   <ItemGroup>
     <Compile Include="TestClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestKrug.cs" />
+    <Compile Include="TestKvadrat.cs" />
+    <Compile Include="TestTreygolnik.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
